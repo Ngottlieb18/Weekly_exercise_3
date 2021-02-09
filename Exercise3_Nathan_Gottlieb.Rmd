@@ -94,11 +94,11 @@ garden_harvest %>%
             by = c("vegetable", "variety"))
 ```
 
-> Not every vegetable in the garden harvest data set has information on plot location. To get rid of any NA values, we could use an inner join function.
+Not every vegetable in the has the information on plot location. To get rid of any NA values we ccould maybe use the inner join function.
 
   3. I would like to understand how much money I "saved" by gardening, for each vegetable type. Describe how I could use the `garden_harvest` and `supply_cost` datasets, along with data from somewhere like [this](https://products.wholefoodsmarket.com/search?sort=relevance&store=10542) to answer this question. You can answer this in words, referencing various join functions. You don't need R code but could provide some if it's helpful.
   
-> This could be accomplished by calculating how many seeds/supplies were used for each vegetable and variety in the garden harvest data set in conjunction with the prices themselves through the data in the supply costs data set. An inner join by vegetable, variety, would show us price of the specific supplies used. 
+This could be accomplished by calculating how many supplies were used for each vegetable and variety in the garden harvest data set while also using the prices themselves through the data in the supply_cost data. Using an inner join by vegetable and variety, would show us price of the specific supplies used. 
 
   4. Subset the data to tomatoes. Reorder the tomato varieties from smallest to largest first harvest date. Create a barplot of total harvest in pounds for each variety, in the new order.
 
@@ -181,7 +181,7 @@ Trips %>%
        y = "")
 ```
 
-> This density plot illustrates the distribution of bike rentals as time progresses. A majority of bike rentals occur in October and November, as weather is more permitting for a bike ride in these months. Likewise, in December and January when there is snow and cold weather, bike rentals are generally down.
+This density plot shows bike rentals as time moves on. A lot of the bikes were rented earlier when the weather is usually nicer then it spikes slightly in December due to most likely people being together for the holidays.
   
   8. A density plot of the events versus time of day.  You can use `mutate()` with `lubridate`'s  `hour()` and `minute()` functions to extract the hour of the day and minute within the hour from `sdate`. Hint: A minute is 1/60 of an hour, so create a variable where 3:30 is 3.5 and 3:45 is 3.75.
   
@@ -197,7 +197,7 @@ Trips %>%
        y = "")
 ```
 
-> This density plot illustrates the distribution of bike rentals by time of day. This density curve is bimodal, where there is a spike in bike rentals around 8:30 AM, the approximate commute to work time, and around 5:30 PM, the approximate commute home time.
+This density plot shows bike rentals by time of day. This sows that there is a spike in rentals in the morning around when people go to work, and in the afternoon when people come home from work.
   
   9. A bar graph of the events versus day of the week. Put day on the y-axis.
   
@@ -211,7 +211,7 @@ Trips %>%
        y = "")
 ```
 
-> This barplot shows bike rentals by day of the week. Generally, weekdays have more rentals than weekends, but weekdays and weekends themselves look similar. Bike rentals are most popular on Fridays.
+This bar plot shows bike rentals by day of the week. Weekdays have more rentals than weekends, but weekdays and weekends themselves look similar. Bike rentals are most popular on Fridays.
   
   10. Facet your graph from exercise 8. by day of the week. Is there a pattern?
   
@@ -229,7 +229,7 @@ Trips %>%
        y = "")
 ```
 
-> There is a pattern in the distribution of bike rentals by time of day. When looking at weekdays, the density curves are bimodal, where there is a spike in bike rentals around 8:30 AM, the approximate commute to work time, and around 5:30 PM, the approximate commute home time. The weekends have a pattern as well, but have one spike around midday, rather than two spikes like a week day does.
+There is a pattern in the distribution of bike rentals by time of day. When looking at weekdays there is a spike in bike rentals in the morning when people are going to work in the afternoon when people are coming home time. The weekends have a pattern as well with one spike around midday instead of the two spikes.
 
 The variable `client` describes whether the renter is a regular user (level `Registered`) or has not joined the bike-rental organization (`Causal`). The next set of exercises investigate whether these two different categories of users show different rental behavior and how `client` interacts with the patterns you found in the previous exercises. Repeat the graphic from Exercise \@ref(exr:exr-temp) (d) with the following changes:
 
@@ -244,7 +244,7 @@ Trips %>%
   ggplot(aes(x = time, fill = client))+
   facet_wrap(vars(wday))+
   geom_density(alpha = .5)+
-   labs(title = "Bike Rentals by Time of Dayach Day 
+   labs(title = "Bike Rentals by Time of Day Each Day 
         and Type of Client",
        x = "",
        y = "")
@@ -267,7 +267,7 @@ Trips %>%
        y = "")
 ```
 
-> In my opinion, this is much better in terms of telling a story.  There is much more of a descrepcency between the types of clients and the last graph was simply a mess. The lack of overlap or blending gives us the opportunity to make stronger, definitive conclusions.
+I feel this is much better in terms of telling a story.  it is a lot clearer to see what is what with these graphs. This helps us make better conclusions about the graphs.
 
   13. Add a new variable to the dataset called `weekend` which will be "weekend" if the day is Saturday or Sunday and  "weekday" otherwise (HINT: use the `ifelse()` function and the `wday()` function from `lubridate`). Then, update the graph from the previous problem by faceting on the new `weekend` variable. 
   
@@ -305,7 +305,7 @@ Trips %>%
        y = "")
 ```
 
-> This graph facets on client and fills with weekday instead of faceting on weekday and filling with client type. The shape of these graphs are very similar, but the distribution underneath the density plot now tells a story about the difference in the type of day, and we can compare side by side distributions of the type of client. 
+This graph shows the distribution clearer as it facets on client and fills with weekday instead of faceting on weekday and filling with client type. The shape of these graphs are similar but the shape underneath the density plot tells a story about the difference in the type of day and we are able to compare side by side distributions of the type of client. 
   
 ### Spatial patterns
 
@@ -340,7 +340,7 @@ Trips %>%
        y = "latitude")
 ```
 
-> I notice that there is a cluster of points around -77.1 to -77.0 longitude and then a little cluster up around 39.1 latitude. Further, most of these points have a proportion less than 0.4 due to the dark shade of blue. 
+I notice that there is a cluster of points around -77.1 to -77.0 longitude and then a little cluster up around 39.1 latitude and 77.2 longitude. Most of these points have a proportion less than 0.4 because of the dark shade of blue. 
   
 ### Spatiotemporal patterns
 
