@@ -94,7 +94,7 @@ garden_harvest %>%
             by = c("vegetable", "variety"))
 ```
 
-Not every vegetable in the has the information on plot location. To get rid of any NA values we ccould maybe use the inner join function.
+Not every vegetable the has the information on plot location. To get rid of any NA values we ccould maybe use the inner join function.
 
   3. I would like to understand how much money I "saved" by gardening, for each vegetable type. Describe how I could use the `garden_harvest` and `supply_cost` datasets, along with data from somewhere like [this](https://products.wholefoodsmarket.com/search?sort=relevance&store=10542) to answer this question. You can answer this in words, referencing various join functions. You don't need R code but could provide some if it's helpful.
   
